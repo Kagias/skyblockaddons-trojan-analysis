@@ -1,0 +1,66 @@
+{
+  "meta": {
+    "title": "SkyblockAddons-26.2.jar — EtherHiding Fabric mod infostealer",
+    "family": "EtherHiding / Weedhack-Majanito",
+    "analysis_date": "2026-10-13",
+    "analysis_type": "static",
+    "tlp": "CLEAR",
+    "reference": "https://github.com/Kagias/skyblockaddons-trojan-analysis"
+  },
+  "sample": {
+    "filename": "SkyblockAddons-26.2.jar",
+    "size_bytes": 1592758,
+    "sha256": "85ccb86cf78c138c55eda930a3d577f7d5891f65f51dfa785acc3d1a1f7b5efa",
+    "sha1": "d3fa13c4326cc2a618ec1112a2cfaef675210f17",
+    "md5": "b3353010af83c489a246c3f7b0ad30c0",
+    "type": "Fabric mod (JAR)"
+  },
+  "network": {
+    "domains": [
+      { "value": "systemnotifier.st", "context": "EtherHiding C2, resolved on-chain" }
+    ],
+    "urls": [
+      { "value": "https://systemnotifier.st/api/static/loading", "context": "stage-2 download" }
+    ],
+    "ipv4": [
+      { "value": "1.1.1.1", "context": "hardcoded DNS-over-HTTPS resolver" },
+      { "value": "8.8.8.8", "context": "hardcoded DNS-over-HTTPS resolver" }
+    ],
+    "doh_path": "/dns-query?name=<host>&type=A"
+  },
+  "blockchain": {
+    "network": "ethereum-mainnet",
+    "contract": "0x9044f5762e43b23ba91d124b51a045f1b51da652",
+    "selector": "0x1f1bd692",
+    "selector_signature": "text()",
+    "creator": "0x34d7fb0cdD43F39DdbDbe85cD6e0688B7596e665",
+    "creation_tx": "0xda4cf534054d992967430e9da3352b2adcfe9f2a7f58085f5c05b211671e16e0"
+  },
+  "host": {
+    "classes": [
+      "q56p0dnpq/qw1mnsk/dq5m8eecjo/cxo7lzvo/jI0.class",
+      "q56p0dnpq/qw1mnsk/dq5m8eecjo/cxo7lzvo/ljl.class",
+      "q56p0dnpq/qw1mnsk/dq5m8eecjo/cxo7lzvo/j1$.class",
+      "q56p0dnpq/qw1mnsk/dq5m8eecjo/cxo7lzvo/lo.class",
+      "q56p0dnpq/qw1mnsk/dq5m8eecjo/cxo7lzvo/o.class",
+      "mece3700569f8/Mece3700569f8.class"
+    ],
+    "files": [
+      "ece3700569f8.mixins.json",
+      "y0whhmrf/t52qmy3n/jyvfg75jyq/edmst/vault.bin",
+      "y0whhmrf/t52qmy3n/jyvfg75jyq/edmst/integrity.bin"
+    ],
+    "strings": [
+      "0x1f1bd692",
+      "/dns-query?name=",
+      "&type=A",
+      "getAccessToken",
+      "com.example.Main"
+    ]
+  },
+  "mitre_attack": [
+    "T1204.002", "T1036.005", "T1027", "T1027.009", "T1140", "T1620",
+    "T1033", "T1528", "T1552", "T1005", "T1071.001", "T1071.004",
+    "T1573", "T1102.001", "T1568", "T1090", "T1105", "T1657"
+  ]
+}

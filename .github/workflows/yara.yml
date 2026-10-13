@@ -1,0 +1,37 @@
+name: YARA
+
+on:
+  push:
+    paths:
+      - "detection/**"
+      - ".github/workflows/yara.yml"
+  pull_request:
+    paths:
+      - "detection/**"
+  workflow_dispatch:
+
+jobs:
+  validate-yara:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install YARA
+        run: sudo apt-get update && sudo apt-get install -y yara
+
+      - name: Compile rule (syntax check)
+        run: yarac detection/minecraft_etherhiding.yar /tmp/rule.yarc
+
+      - name: Install YARA-X
+        run: cargo install yara-x-cli --locked || pipx install yara-x
+
+      - name: Validate with YARA-X
+        run: yr check detection/minecraft_etherhiding.yar
+
+      - name: Smoke-test on fixtures (if present)
+        run: |
+          if [ -d detection/fixtures ]; then
+            yara -r detection/minecraft_etherhiding.yar detection/fixtures
+          else
+            echo "No fixtures directory; skipping scan."
+          fi

@@ -1,0 +1,28 @@
+# Malware samples — never commit these
+*.jar
+*.class
+*.bin
+*.exe
+*.dll
+*.zip
+*.rar
+*.7z
+
+# Extracted / decompiled working dirs
+skyblock-extract/
+jadx-out/
+extracted/
+decompiled/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
